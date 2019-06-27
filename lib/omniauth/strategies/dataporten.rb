@@ -32,16 +32,9 @@ module OmniAuth
                 @raw_info ||= access_token.get('/userinfo').parsed
             end
 
-            private
-
             def callback_url
-                options[:redirect_url] + script_name + callback_path
+                full_host + script_name + callback_path
             end
-
-            #def request_phase
-            #       options[:response_type] ||= 'code'
-	        #       super   
-            #end
         end
     end
 end
